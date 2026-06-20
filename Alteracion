@@ -1,0 +1,9 @@
+class Operacion(ABC):
+    @abstractmethod
+    def ejecutar(self):
+        pass
+
+
+class Alteracion_Datos(Operacion):
+    def ejecutar(self):
+        print("Se alteraron los datos.")
