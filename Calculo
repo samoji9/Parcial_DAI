@@ -1,0 +1,18 @@
+class Calculo_Multas(Operacion):
+    
+    def ejecutar(self, recurso, horas_exceso=0):
+
+        if recurso.tipo == "Libro":
+            multa = 2.50
+
+        elif recurso.tipo == "Revista":
+            multa = 2.50
+
+        elif recurso.tipo == "Sala de estudio":
+            factor = 1.50
+            multa = horas_exceso * factor
+
+        else:
+            multa = 0
+
+        print(f"La multa es: ${multa}")
