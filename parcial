@@ -1,0 +1,33 @@
+from abc import ABC, abstractmethod
+
+
+class Bibliotecario:
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+
+class Recurso:
+    def __init__(self, nombre, codigo, tipo):
+        self.nombre = nombre
+        self.codigo = codigo
+        self.tipo = tipo
+
+
+class Registro_Atencion:
+    def __init__(self, codigo_unico, carnet, bibliotecario, nombre_empleado, codigo_usuario):
+        if bibliotecario is None:
+            raise ValueError("Debe existir un bibliotecario.")
+
+        self.codigo_unico = codigo_unico
+        self.carnet = carnet
+        self.bibliotecario = bibliotecario
+        self.nombre_empleado = nombre_empleado
+        self.codigo_usuario = codigo_usuario
+        self.recursos = []
+
+    def agregar_recurso(self, recurso):
+        if len(self.recursos) >= 4:
+            raise ValueError("Solo se permiten 4 recursos.")
+        
+        self.recursos.append(recurso)
+
